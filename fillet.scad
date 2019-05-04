@@ -84,3 +84,13 @@ module outside_fillet_for_cube_with_rounded_corners(cube_size, corner_radius, fi
 }
 /*outside_fillet_for_cube_with_rounded_corners([100, 60], 10, 5);*/
 /*outside_fillet_for_cube_with_rounded_corners([100, 60], 10, 5, center = true);*/
+
+module cylinder_fillet(cylinder_dia, radius, empty = false) {
+  difference() {
+    cylinder(d=cylinder_dia + 2 * radius, h=radius);
+    translate([0, 0, radius]) rotate_extrude() translate([radius + cylinder_dia / 2, 0, 0]) circle(r=radius);
+    if (empty) translate([0, 0, -1]) cylinder(d=cylinder_dia, h=radius + 2);
+  }
+}
+/*cylinder_fillet(20, 5);*/
+/*cylinder_fillet(20, 5, empty = true);*/
