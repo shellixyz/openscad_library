@@ -18,6 +18,19 @@ module half_sphere(d, r) {
 /*half_sphere(r=3);*/
 /*half_sphere(d=6);*/
 
+module half_sphere_shell(d, r, thickness)
+{
+    difference() {
+        half_sphere(d, r);
+        if (d == undef) {
+          sphere(r=r-thickness);
+        } else {
+          sphere(d=d-2*thickness);
+        }
+    }
+}
+/*half_sphere_shell(d=10, thickness=1);*/
+
 module ellipsoid(x, y, z) {
   scale([1, y / x, z / x]) sphere(d=x);
 }
