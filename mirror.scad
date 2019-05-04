@@ -11,6 +11,10 @@ module mirror_z(do_it = true) {
   mirror([0, 0, (do_it ? 1 : 0)]) children();
 }
 
+module mirror_xy(do_it = true) {
+  mirror([(do_it ? 1 : 0), 0, 0]) mirror([0, (do_it ? 1 : 0), 0]) children();
+}
+
 module mirror_copy_x() {
     for (mx = [0, 1]) mirror([mx, 0, 0]) children();
 }
