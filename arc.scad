@@ -23,3 +23,12 @@ module arc(angle, length, width, radius, square_ends=false, center=false, n=100)
 /*arc(length=20, width=5, radius=10, square_ends=true);*/
 /*arc(angle=180, width=5, radius=10);*/
 /*arc(angle=90, width=5, radius=10, square_ends=true);*/
+
+module arc_ir_or(angle, length, ir, or, square_ends=false, center=false, n=100) {
+    width = or - ir;
+    radius = ir + width / 2;
+    arc(angle=angle, length=length, width=width, radius=radius, square_ends=square_ends, center=center, n=n);
+}
+/*arc_ir_or(length=20, ir=7.5, or=12.5);*/
+/*arc_ir_or(angle=180, ir=7.5, or=12.5);*/
+/*arc_ir_or(angle=180, ir=7.5, or=12.5, square_ends=true);*/
